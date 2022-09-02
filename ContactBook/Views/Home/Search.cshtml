@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ContactBook.Contact>
+
+<br /><br />
+@using (Html.BeginForm("Search", "Home", FormMethod.Get))
+            {
+                @Html.TextBox("searching")<input type="submit" value="Search" />
+            }
+<br /><br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th width="155px">First Name</th>
+            <th width="155px">Last Name</th>
+            <th width="155px">Contact No1</th>
+            <th width="155px">Contact No2</th>
+            <th width="155px">Email</th>
+            <th width="155px">Adress</th>
+        </tr>
+    </thead>
+</table>
+<table class="table table-bordered">
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="2" style="color:red">
+                No contact found
+            </td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td width="155px">@item.ContactFirstName</td>
+                <td width="155px">@item.ContactLastName</td>
+                <td width="155px">@item.ContactNo1</td>
+                <td width="155px">@item.ContactNo2</td>
+                <td width="155px">@item.Email</td>
+                <td width="155px">@item.Adress</td>
+            </tr>
+        }
+    }
+</table>

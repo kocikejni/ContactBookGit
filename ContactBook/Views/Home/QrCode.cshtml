@@ -1,0 +1,22 @@
+﻿@model List<ContactBook.ViewModel.ContactModel>
+
+@{
+    ViewBag.Title = "QrCode";
+}
+
+<h2>QrCode</h2>
+
+@using (Html.BeginForm("QrCode", "Home", FormMethod.Post))
+{
+    <div>
+        <input type="text" name="qrcode" />
+        <br />
+        <br />
+        <input type="submit" value="Generate" />
+
+        @if (ViewBag.QRCodeImage != null)
+        {
+            <img src="@ViewBag.QRCodeImage" alt="" style="height:300px" ;width:300px />
+        }
+    </div>
+}
